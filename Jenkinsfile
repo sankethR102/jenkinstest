@@ -25,10 +25,12 @@ pipeline {
         }
 
         stage('Start Containers') {
-            steps {
-                bat 'docker compose up -d'
-            }
-        }
+        
+    steps {
+        bat 'docker compose down'
+        bat 'docker compose up --build -d'
+    }
+}
 
         stage('Verify') {
             steps {

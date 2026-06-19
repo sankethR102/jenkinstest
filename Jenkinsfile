@@ -18,9 +18,9 @@ pipeline {
             }
         }
 
-        stage('Build Containers') {
+        stage('Debug Docker') {
             steps {
-                bat 'docker compose build'
+                bat 'docker ps -a'
             }
         }
 

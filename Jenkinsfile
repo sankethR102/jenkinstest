@@ -5,34 +5,36 @@ pipeline {
     stages {
 
         stage('Checkout Info') {
-
             steps {
-
                 bat 'whoami'
                 bat 'hostname'
-
             }
         }
 
         stage('Docker Check') {
-
             steps {
-
                 bat 'docker --version'
                 bat 'docker compose version'
-
             }
         }
 
-        stage('List Files') {
-
+        stage('Build Containers') {
             steps {
+                bat 'docker compose build'
+            }
+        }
 
-                bat 'dir'
+        stage('Start Containers') {
+            steps {
+                bat 'docker compose up -d'
+            }
+        }
 
+        stage('Verify') {
+            steps {
+                bat 'docker ps'
             }
         }
 
     }
-
 }

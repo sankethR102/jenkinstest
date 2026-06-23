@@ -17,7 +17,7 @@ class Student(db.Model):
 
 @app.route("/")
 def home():
-    return "Flask + PostgreSQL + Docker Compose 🚀 version 4 heyyy!!!!!!!"
+    return "Flask + PostgreSQL + Docker Compose 🚀 version 5 heyyy!!!!!!!"
 
 
 @app.route("/add/<name>")
